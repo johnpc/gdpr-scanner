@@ -1,0 +1,15 @@
+{
+  "name": "gdpr-helper",
+  "description": "This tool scans your email history to find all services that have your data. It identifies them and saves them in `/tmp/yourSubscriptions.json`. You can use this information to send GDPR deletion requests to those services.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "googleapis": "^39.2.0"
+  }
+}
