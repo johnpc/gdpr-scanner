@@ -4,6 +4,8 @@ This tool scans your email history to find all services that have your data. It 
 
 ## Authentication
 
+### Gmail API
+
 You need to generate an API key and save it at the root of this project in `credentials.json` file for this to work:
 
 1. Open the [Google Cloud Console](https://console.cloud.google.com/).
@@ -16,11 +18,20 @@ You need to generate an API key and save it at the root of this project in `cred
 
 Download the credential and store it as `credentials.json` within this project.
 
+### hunter.io API
+
+Create an account and visit https://hunter.io/api-keys. Run `cp .env.example .env` and replace `abc123` with your hunter.io api key.
+
 ## Running the program
 
-To run the program, run `npm install` then `npm start`
+First, run `npm install`.
+
+`npm identify` scans your email history, creates a listing of all services that may have your data, and stores it in `/tmp/yourSubscriptions.json`.
+
+`npm populate` uses hunter.io to fill in support email addresses that you can reach out to for each service to request deletion in `/tmp/yourSubscriptions.json`.
+
+`npm gdpr` sends a gdpr data deletion request email to all support emails in `/tmp/yourSubscriptions.json`.
 
 ## TODO
 
-- scan service names for gdpr support email addresses
-- automate sending gdpr deletion request template
+- implement `npm gdpr` - automate sending gdpr deletion request template
